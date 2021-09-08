@@ -69,9 +69,33 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/LuaSnip"
+  },
   ["barbar.nvim"] = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/barbar.nvim"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0" },
@@ -87,9 +111,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/material.nvim"
   },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-cmp"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-lspinstall"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-treesitter"] = {
     loaded = true,

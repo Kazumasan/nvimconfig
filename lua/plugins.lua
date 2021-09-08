@@ -1,7 +1,6 @@
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-	
   use {
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
@@ -31,5 +30,21 @@ return require('packer').startup(function()
   use {
     'kabouzeid/nvim-lspinstall'
   }
-
+  -- LuaSnip
+  -- Install nvim-cmp, and buffer source as a dependency
+  use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      {
+        "L3MON4D3/LuaSnip",
+        requires = {
+          "rafamadriz/friendly-snippets"
+        }
+      },
+      "hrsh7th/cmp-buffer",
+      'hrsh7th/cmp-path',
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp"
+    }
+  }
 end)

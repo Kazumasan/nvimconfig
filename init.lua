@@ -9,5 +9,6 @@ local general = require("general")
 local line = require("lualineconf")
 local tabbar = require("barbarconf")
 local tree = require("treesitterconf")
+local cmp = require("cmpconf")
 -- lsp
 local lsp = require("lsp")

@@ -10,6 +10,7 @@ vim.opt.numberwidth = 3
 vim.opt.showmode = false
 vim.opt.wrap = false
 vim.opt.laststatus = 2
+vim.opt.scl = "yes"
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 

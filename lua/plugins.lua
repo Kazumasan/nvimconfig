@@ -30,8 +30,7 @@ return require('packer').startup(function()
   use {
     'kabouzeid/nvim-lspinstall'
   }
-  -- LuaSnip
-  -- Install nvim-cmp, and buffer source as a dependency
+  -- Install nvim-cmp, buffer, cmp-lsp and LuaSnip + cmp-luasnip source as a dependency
   use {
     "hrsh7th/nvim-cmp",
     requires = {
@@ -46,5 +45,18 @@ return require('packer').startup(function()
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp"
     }
+  }
+  -- vim-kommentary
+  use{
+    'b3nj5m1n/kommentary'
+  }
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  -- autopairs
+  use {
+    'windwp/nvim-autopairs',
   }
 end)

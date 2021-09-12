@@ -102,6 +102,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
+  kommentary = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/kommentary"
+  },
   ["lualine.nvim"] = {
     config = { "\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\flualine\frequire\0" },
     loaded = true,
@@ -110,6 +114,10 @@ _G.packer_plugins = {
   ["material.nvim"] = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/material.nvim"
+  },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -138,6 +146,10 @@ _G.packer_plugins = {
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   }
 }
 

@@ -6,7 +6,7 @@ cmp.setup({
     end
   },
   sources = {
-    {name = "buffer" },
+    {name = "buffer"},
     {name = "nvim_lsp"},
     {name = "luansip"},
     {name = "path"}
@@ -21,4 +21,10 @@ cmp.setup({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true})
   }
+})
+
+require("nvim-autopairs.completion.cmp").setup({
+  map_cr = true, --  map <CR> on insert mode
+  map_complete = true, -- it will auto insert `(` after select function or method item
+  auto_select = true -- automatically select the first item
 })

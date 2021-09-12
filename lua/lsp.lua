@@ -1,11 +1,13 @@
-require'lspinstall'.setup() -- important
+require('lspinstall').setup() -- important
 
---local capabilites = vim.lsp.protocol.make_client_capabilities()
---capabilites = require('cmp_nvim_lsp').update_capabilities(capabilites)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = require'lspinstall'.installed_servers()
+local servers = require('lspinstall').installed_servers()
 for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{
-    --capabilities = capabilities
+  require('lspconfig')[server].setup{
+    capabilities = capabilities
   }
 end
+  
+

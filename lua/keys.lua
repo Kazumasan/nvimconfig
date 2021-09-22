@@ -18,6 +18,8 @@ keymap('n', '<<', '>>', opts)
 keymap('n', '>>', '<<', opts)
 keymap('v', '<', '>', opts)
 keymap('v', '>', '<', opts)
+--formatter
+keymap('n', '<Leader>f', ':Format<CR>', opts)
 
 -- vim-kommentary
 keymap("n", "#", "<Plug>kommentary_line_default", {})
@@ -25,4 +27,4 @@ keymap("n", "<Leader>#", "<Plug>kommentary_motion_default", {})
 keymap("v", "#", "<Plug>kommentary_visual_default", {})
 
 -- telescope
-keymap("n", "<Leader>f",":Telescope find_files<CR>", {}) 
+keymap("n", "<Leader>t",":Telescope find_files<CR>", {}) 

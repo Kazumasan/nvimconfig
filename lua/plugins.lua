@@ -59,4 +59,8 @@ return require('packer').startup(function()
   use {
     'windwp/nvim-autopairs',
   }
+  -- formatter
+  use {
+    'lukas-reineke/format.nvim'
+  }
 end)

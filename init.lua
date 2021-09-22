@@ -16,4 +16,4 @@ local cmp = require("cmpconf")
 -- lsp
 local lsp = require("lsp")
 
-
+local pretty = require("formatter")

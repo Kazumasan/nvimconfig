@@ -93,6 +93,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
   },
+  ["format.nvim"] = {
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/format.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/friendly-snippets"

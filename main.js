@@ -10,3 +10,5 @@ class myClass {
     console.log('more function stuff');
   };
 }
+
+function

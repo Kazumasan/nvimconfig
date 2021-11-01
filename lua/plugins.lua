@@ -121,4 +121,17 @@ return require('packer').startup(function(use)
       require('pretty');
     end,
   }
+  -- Tabout
+  -- use {
+  --   'abecodes/tabout.nvim',
+  --   config = function()
+  --     require("taboutconf")
+  --   end,
+  --   wants = {'nvim-treesitter'}, -- or require if not used so far
+  --   after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
+  -- }
+  use {
+    "luukvbaal/stabilize.nvim",
+    config = function() require("stabilize").setup() end
+  }
 end)

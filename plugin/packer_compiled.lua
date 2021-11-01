@@ -164,6 +164,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
+  ["stabilize.nvim"] = {
+    config = { "\27LJ\1\0027\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\14stabilize\frequire\0" },
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/stabilize.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -191,6 +196,10 @@ time([[Config for nvim-tree.lua]], false)
 time([[Config for barbar.nvim]], true)
 try_loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15barbarconf\frequire\0", "config", "barbar.nvim")
 time([[Config for barbar.nvim]], false)
+-- Config for: stabilize.nvim
+time([[Config for stabilize.nvim]], true)
+try_loadstring("\27LJ\1\0027\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\14stabilize\frequire\0", "config", "stabilize.nvim")
+time([[Config for stabilize.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\1\2b\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\foptions\1\0\0\1\0\1\ntheme\17iceberg_dark\nsetup\flualine\frequire\0", "config", "lualine.nvim")

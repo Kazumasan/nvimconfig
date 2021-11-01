@@ -70,10 +70,12 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
+    config = { "\27LJ\1\2°\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\finclude\1\0\1\tpathA~/.local/share/nvim/site/pack/packer/start/friendly-snippets\1\2\0\0\15javascript\tload luasnip/loaders/from_vscode\frequire\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
   ["barbar.nvim"] = {
+    config = { "\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15barbarconf\frequire\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
@@ -93,9 +95,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
   },
-  ["format.nvim"] = {
+  ["formatter.nvim"] = {
+    config = { "\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vpretty\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/format.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/formatter.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -107,11 +110,12 @@ _G.packer_plugins = {
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   kommentary = {
+    config = { "\27LJ\1\2®\2\0\0\4\0\n\0\0144\0\0\0007\0\1\0)\1\1\0:\1\2\0004\0\3\0%\1\4\0>\0\2\0027\0\5\0%\1\6\0003\2\a\0003\3\b\0:\3\t\2>\0\3\1G\0\1\0\30multi_line_comment_string\1\3\0\0\a/*\a*/\1\0\4 prefer_single_line_comments\2\22ignore_whitespace\2\31use_consistent_indentation\2\31single_line_comment_string\a//\fdefault\23configure_language\22kommentary.config\frequire'kommentary_create_default_mappings\6g\bvim\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/kommentary"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\flualine\frequire\0" },
+    config = { "\27LJ\1\2b\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\foptions\1\0\0\1\0\1\ntheme\17iceberg_dark\nsetup\flualine\frequire\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
@@ -120,14 +124,17 @@ _G.packer_plugins = {
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/material.nvim"
   },
   ["nvim-autopairs"] = {
+    config = { "\27LJ\1\2p\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\21disable_filetype\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\19nvim-autopairs\frequire\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+    config = { "\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\fcmpconf\frequire\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
+    config = { "\27LJ\1\2#\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\blsp\frequire\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
@@ -135,7 +142,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
+  ["nvim-tree.lua"] = {
+    config = { "\27LJ\1\2f\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\3\15auto_close\1\18disable_netrw\2\16open_on_tab\2\nsetup\14nvim-tree\frequire\0" },
+    loaded = true,
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19treesitterconf\frequire\0" },
     loaded = true,
     path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
@@ -158,14 +171,50 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: formatter.nvim
+time([[Config for formatter.nvim]], true)
+try_loadstring("\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vpretty\frequire\0", "config", "formatter.nvim")
+time([[Config for formatter.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19treesitterconf\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+try_loadstring("\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\fcmpconf\frequire\0", "config", "nvim-cmp")
+time([[Config for nvim-cmp]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\1\2f\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\3\15auto_close\1\18disable_netrw\2\16open_on_tab\2\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
+-- Config for: barbar.nvim
+time([[Config for barbar.nvim]], true)
+try_loadstring("\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15barbarconf\frequire\0", "config", "barbar.nvim")
+time([[Config for barbar.nvim]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\1\0025\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+try_loadstring("\27LJ\1\2b\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\foptions\1\0\0\1\0\1\ntheme\17iceberg_dark\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\1\2°\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\finclude\1\0\1\tpathA~/.local/share/nvim/site/pack/packer/start/friendly-snippets\1\2\0\0\15javascript\tload luasnip/loaders/from_vscode\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+try_loadstring("\27LJ\1\2®\2\0\0\4\0\n\0\0144\0\0\0007\0\1\0)\1\1\0:\1\2\0004\0\3\0%\1\4\0>\0\2\0027\0\5\0%\1\6\0003\2\a\0003\3\b\0:\3\t\2>\0\3\1G\0\1\0\30multi_line_comment_string\1\3\0\0\a/*\a*/\1\0\4 prefer_single_line_comments\2\22ignore_whitespace\2\31use_consistent_indentation\2\31single_line_comment_string\a//\fdefault\23configure_language\22kommentary.config\frequire'kommentary_create_default_mappings\6g\bvim\0", "config", "kommentary")
+time([[Config for kommentary]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\1\2p\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\21disable_filetype\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\1\2#\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\blsp\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
 if should_profile then save_profiles() end
 
 end)

@@ -1,5 +1,12 @@
-const test = () => {
-	console.log('Prettier');
-};
-
-var a = 'THis is my string ';
+class myClass {
+  constructor() {
+    this.bruh = 'Bruh';
+  }
+  
+  get a() {
+    return a;
+  }
+  newFunction = () => {
+    console.log('more function stuff');
+  };
+}

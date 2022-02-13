@@ -15,6 +15,7 @@ keymap('n', '<c-j>', ':BufferPrevious<CR>', opts) -- ""
 keymap('n', '<Leader>s', ':BufferPick<CR>', opts)
 keymap('n', '<Leader>h', ':noh<CR>', opts) -- turn off search hilighting
 keymap('n', '<Leader>bc', ':BufferClose!<CR>', opts) -- convinient buffer close
+keymap('t', "<Leader>jk", 'C-\\><C-n>', opts)
 
 -- better tabbing
 keymap('n', '<<', '>>', opts)

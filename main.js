@@ -2,7 +2,7 @@ class myClass {
   constructor() {
     this.bruh = 'Bruh';
   }
-  
+
   get a() {
     return a;
   }

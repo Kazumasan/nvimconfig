@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -70,108 +70,132 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
-    config = { "\27LJ\1\2°\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\finclude\1\0\1\tpathA~/.local/share/nvim/site/pack/packer/start/friendly-snippets\1\2\0\0\15javascript\tload luasnip/loaders/from_vscode\frequire\0" },
+    config = { "\27LJ\1\2³\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\finclude\1\0\1\tpathA~/.local/share/nvim/site/pack/packer/start/friendly-snippets\1\3\0\0\15javascript\ago\tload luasnip/loaders/from_vscode\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/LuaSnip"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["barbar.nvim"] = {
     config = { "\27LJ\1\2*\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\15barbarconf\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/barbar.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-path"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
   },
   cmp_luasnip = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["formatter.nvim"] = {
     config = { "\27LJ\1\2&\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\vpretty\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/formatter.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
     config = { "\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   kommentary = {
     config = { "\27LJ\1\2®\2\0\0\4\0\n\0\0144\0\0\0007\0\1\0)\1\1\0:\1\2\0004\0\3\0%\1\4\0>\0\2\0027\0\5\0%\1\6\0003\2\a\0003\3\b\0:\3\t\2>\0\3\1G\0\1\0\30multi_line_comment_string\1\3\0\0\a/*\a*/\1\0\4 prefer_single_line_comments\2\22ignore_whitespace\2\31use_consistent_indentation\2\31single_line_comment_string\a//\fdefault\23configure_language\22kommentary.config\frequire'kommentary_create_default_mappings\6g\bvim\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/kommentary"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/kommentary",
+    url = "https://github.com/b3nj5m1n/kommentary"
   },
   ["lualine.nvim"] = {
     config = { "\27LJ\1\2b\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\foptions\1\0\0\1\0\1\ntheme\17iceberg_dark\nsetup\flualine\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["material.nvim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/material.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/material.nvim",
+    url = "https://github.com/marko-cerovac/material.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\1\2p\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\21disable_filetype\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\19nvim-autopairs\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     config = { "\27LJ\1\2'\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\fcmpconf\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-cmp"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     config = { "\27LJ\1\2#\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\blsp\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-lspinstall",
+    url = "https://github.com/kabouzeid/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
     config = { "\27LJ\1\2f\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\3\15auto_close\1\18disable_netrw\2\16open_on_tab\2\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "\27LJ\1\2.\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\19treesitterconf\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["stabilize.nvim"] = {
     config = { "\27LJ\1\0027\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\14stabilize\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/stabilize.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/stabilize.nvim",
+    url = "https://github.com/luukvbaal/stabilize.nvim"
   },
   ["telescope.nvim"] = {
+    config = { "\27LJ\1\2‡\1\0\0\4\0\b\0\v4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\6\0003\2\4\0003\3\3\0:\3\5\2:\2\a\1>\0\2\1G\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\18node_modules/\n.git/\nsetup\14telescope\frequire\0" },
     loaded = true,
-    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/home/bastian/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   }
 }
 
@@ -200,34 +224,39 @@ time([[Config for barbar.nvim]], false)
 time([[Config for stabilize.nvim]], true)
 try_loadstring("\27LJ\1\0027\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\14stabilize\frequire\0", "config", "stabilize.nvim")
 time([[Config for stabilize.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\1\2³\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\finclude\1\0\1\tpathA~/.local/share/nvim/site/pack/packer/start/friendly-snippets\1\3\0\0\15javascript\ago\tload luasnip/loaders/from_vscode\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\1\2b\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\foptions\1\0\0\1\0\1\ntheme\17iceberg_dark\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\1\2°\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\finclude\1\0\1\tpathA~/.local/share/nvim/site/pack/packer/start/friendly-snippets\1\2\0\0\15javascript\tload luasnip/loaders/from_vscode\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
--- Config for: kommentary
-time([[Config for kommentary]], true)
-try_loadstring("\27LJ\1\2®\2\0\0\4\0\n\0\0144\0\0\0007\0\1\0)\1\1\0:\1\2\0004\0\3\0%\1\4\0>\0\2\0027\0\5\0%\1\6\0003\2\a\0003\3\b\0:\3\t\2>\0\3\1G\0\1\0\30multi_line_comment_string\1\3\0\0\a/*\a*/\1\0\4 prefer_single_line_comments\2\22ignore_whitespace\2\31use_consistent_indentation\2\31single_line_comment_string\a//\fdefault\23configure_language\22kommentary.config\frequire'kommentary_create_default_mappings\6g\bvim\0", "config", "kommentary")
-time([[Config for kommentary]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\1\2p\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\21disable_filetype\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+try_loadstring("\27LJ\1\2®\2\0\0\4\0\n\0\0144\0\0\0007\0\1\0)\1\1\0:\1\2\0004\0\3\0%\1\4\0>\0\2\0027\0\5\0%\1\6\0003\2\a\0003\3\b\0:\3\t\2>\0\3\1G\0\1\0\30multi_line_comment_string\1\3\0\0\a/*\a*/\1\0\4 prefer_single_line_comments\2\22ignore_whitespace\2\31use_consistent_indentation\2\31single_line_comment_string\a//\fdefault\23configure_language\22kommentary.config\frequire'kommentary_create_default_mappings\6g\bvim\0", "config", "kommentary")
+time([[Config for kommentary]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\1\2#\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\blsp\frequire\0", "config", "nvim-lspconfig")
 time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\1\2p\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\21disable_filetype\1\0\0\1\2\0\0\20TelescopePrompt\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\1\2‡\1\0\0\4\0\b\0\v4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\6\0003\2\4\0003\3\3\0:\3\5\2:\2\a\1>\0\2\1G\0\1\0\rdefaults\1\0\0\25file_ignore_patterns\1\0\0\1\3\0\0\18node_modules/\n.git/\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end

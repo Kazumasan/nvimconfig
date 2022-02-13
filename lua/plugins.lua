@@ -56,7 +56,7 @@ return require('packer').startup(function(use)
         },
         config= function ()
           require("luasnip/loaders/from_vscode").load{
-            include = {"javascript"},
+            include = {"javascript", "go"},
             path="~/.local/share/nvim/site/pack/packer/start/friendly-snippets"
           }
         end
@@ -87,7 +87,14 @@ return require('packer').startup(function(use)
   -- telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = function() 
+      require('telescope').setup{
+        defaults = {
+          file_ignore_patterns = {"node_modules/", ".git/"}
+        }
+      }
+    end
   }
   --nvim-tree
   use {

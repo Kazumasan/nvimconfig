@@ -1,13 +1,11 @@
-require('lspinstall').setup() -- important
+local lsp_install = require("nvim-lsp-installer")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = require('lspinstall').installed_servers()
-for _, server in pairs(servers) do
-  require('lspconfig')[server].setup{
+lsp_install.on_server_ready(function(server)
+  opts = {
     capabilities = capabilities
   }
-end
-  
-
+  server:setup(opts)
+end)

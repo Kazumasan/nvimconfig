@@ -35,15 +35,10 @@ return require('packer').startup(function(use)
         require("treesitterconf")
       end
   }
-  -- lsp / lsp-install
+  -- lsp / lsp-installer
   use{
-    'kabouzeid/nvim-lspinstall'
-  }
-  use {
+    'williamboman/nvim-lsp-installer',
     'neovim/nvim-lspconfig',
-    config = function ()
-      require("lsp")
-    end
   }
   -- Install nvim-cmp, buffer, cmp-lsp and LuaSnip + cmp-luasnip source as  a dependency
   use {
@@ -88,13 +83,13 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
-    config = function() 
-      require('telescope').setup{
-        defaults = {
-          file_ignore_patterns = {"node_modules/", ".git/"}
-        }
-      }
-    end
+    -- config = function() 
+    --   require('telescope').setup{
+    --     defaults = {
+    --       file_ignore_patterns = {"node_modules/", ".git/"}
+    --     }
+    --   }
+    -- end
   }
   --nvim-tree
   use {

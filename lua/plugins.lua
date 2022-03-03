@@ -2,14 +2,19 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   -- colorscheme
-  use {'marko-cerovac/material.nvim'}
+  use {
+    'marko-cerovac/material.nvim',
+    config = require("material").setup{
+        lualine_style = "stealth",
+      }
+  }
   -- status line
   use { 'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = function()
       require("lualine").setup({
         options = {
-          theme = "iceberg_dark"
+          theme = "material"
         }
       })
     end
@@ -83,13 +88,13 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
-    -- config = function() 
-    --   require('telescope').setup{
-    --     defaults = {
-    --       file_ignore_patterns = {"node_modules/", ".git/"}
-    --     }
-    --   }
-    -- end
+    config = function()
+      require('telescope').setup{
+        defaults = {
+          file_ignore_patterns = {"node_modules/", ".git/"}
+        }
+      }
+    end
   }
   --nvim-tree
   use {
@@ -104,6 +109,11 @@ return require('packer').startup(function(use)
           disable_netrw = true,
           auto_close = false,
           open_on_tab = true,
+          actions = {
+            open_file = {
+              quit_on_open = true;
+            }
+          },
         })
       end
   }

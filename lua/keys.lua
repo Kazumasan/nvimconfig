@@ -11,11 +11,10 @@ keymap('n', '<Leader>w', ':w<CR>', opts) -- i hate :w
 keymap('n', 'ö', '}', opts)
 keymap('n', 'ä', '{', opts)
 keymap('n', '<c-k>', ':BufferNext<CR>', opts)
--- keymap('n', '<c-j>', ':BufferPrevious<CR>', opts) -- ""
+keymap('n', '<c-j>', ':BufferPrevious<CR>', opts) -- ""
 keymap('n', '<Leader>s', ':BufferPick<CR>', opts)
 keymap('n', '<Leader>h', ':noh<CR>', opts) -- turn off search hilighting
 keymap('n', '<Leader>bc', ':BufferClose!<CR>', opts) -- convinient buffer close
-keymap('t', "<Leader>jk", 'C-\\><C-n>', opts)
 
 -- better tabbing
 keymap('n', '<<', '>>', opts)
@@ -31,7 +30,7 @@ keymap("n", "<Leader>#", "<Plug>kommentary_motion_default", {})
 keymap("v", "#", "<Plug>kommentary_visual_default", {})
 
 -- telescope
--- keymap("n", "<Leader>t",":Telescope find_files<CR>", {})
+keymap("n", "<Leader>t",":Telescope find_files<CR>", {})
 
 --nvimtree
 keymap("n", "<Leader>o", ":NvimTreeToggle<CR>", opts)

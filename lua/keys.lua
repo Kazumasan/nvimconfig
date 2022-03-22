@@ -10,17 +10,18 @@ keymap('n', '<Leader>w', ':w<CR>', opts) -- i hate :w
 -- keymap('n', '<Leader>q', ':q!<CR>', opts) -- i hate :q
 keymap('n', 'ö', '}', opts)
 keymap('n', 'ä', '{', opts)
-keymap('n', '<c-k>', ':BufferNext<CR>', opts)
-keymap('n', '<c-j>', ':BufferPrevious<CR>', opts) -- ""
+keymap('n', '<c-k>', ':BufferLineCycleNext<CR>', opts)
+keymap('n', '<c-j>', ':BufferLineCyclePrev<CR>', opts) -- ""
 keymap('n', '<Leader>s', ':BufferPick<CR>', opts)
 keymap('n', '<Leader>h', ':noh<CR>', opts) -- turn off search hilighting
-keymap('n', '<Leader>bc', ':BufferClose!<CR>', opts) -- convinient buffer close
+keymap('n', '<Leader>bc', ':bdelete!<CR>', opts) -- convinient buffer close
 
 -- better tabbing
 keymap('n', '<<', '>>', opts)
 keymap('n', '>>', '<<', opts)
 keymap('v', '<', '>', opts)
 keymap('v', '>', '<', opts)
+
 --formatter
 keymap('n', '<Leader>f', ':Format<CR>', opts)
 

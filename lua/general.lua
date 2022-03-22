@@ -13,13 +13,18 @@ vim.opt.laststatus = 2
 vim.opt.scl = "yes"
 vim.opt.sidescroll = 1
 vim.opt.sidescrolloff = 10
+
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 
 --colorscheme
 vim.g.termguicolor = true
--- vim.g.nvim_tree_quit_on_open = 1
-vim.cmd([[
-colorscheme material
-]])
-vim.g.material_style = "deep ocean"
+
+-- virtual_text
+vim.diagnostic.config({
+  virtual_text = false
+})
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]

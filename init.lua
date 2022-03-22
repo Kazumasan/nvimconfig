@@ -9,3 +9,8 @@ lspstuff = require("lsp")
 test = require("test")
 
 -- comp = require("cmpconf")
+
+vim.cmd[[
+  colorscheme nightfox
+  ]]
+

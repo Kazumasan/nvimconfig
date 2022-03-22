@@ -1,12 +1,25 @@
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  -- colorscheme
+  -- colorschemes
   use {
     'marko-cerovac/material.nvim',
     config = require("material").setup{
         lualine_style = "stealth",
       }
+  }
+  use {
+    "EdenEast/nightfox.nvim",
+    config = require("nightfox").setup{
+      pallets = {
+        nightfox = {
+          -- yellow = { base="#36BFA1", dim="#288F79", bright="#60D2B9"},
+        },
+      }
+    }
+  }
+  use {
+    "sainnhe/sonokai"
   }
   -- status line
   use { 'nvim-lualine/lualine.nvim',
@@ -14,17 +27,37 @@ return require('packer').startup(function(use)
     config = function()
       require("lualine").setup({
         options = {
-          theme = "material"
+          theme = "nightfox"
         }
       })
     end
   }
   --tabbar
+  -- use {
+  --   'romgrk/barbar.nvim',
+  --   requires = {'kyazdani42/nvim-web-devicons'},
+  --   config = function ()
+  --     require("barbarconf")
+  --   end
+  -- }
   use {
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons'},
-    config = function ()
-      require("barbarconf")
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config=function ()
+     require("bufferline").setup{
+      mode= buffers,
+      close_command = "bdelete!",
+      indicator_line = "|",
+      modified_icon = "●",
+      offsets = {filetype = "NvimTree", text = "File Explorer" },
+      show_buffer_icons = true,
+      show_close_icon = false,
+      show_buffer_close_icons = false,
+      show_tab_indicator = true,
+      seperator_style = "thin",
+      always_show_buffer_line = true,
+      sort_by = "relative_directory"
+     }
     end
   }
   -- Use dependency and run lua function after load
@@ -96,6 +129,10 @@ return require('packer').startup(function(use)
       }
     end
   }
+  -- movement Plugins
+  use {
+    'ggandor/lightspeed.nvim'
+  }
   --nvim-tree
   use {
       'kyazdani42/nvim-tree.lua',
@@ -117,6 +154,7 @@ return require('packer').startup(function(use)
         })
       end
   }
+
   -- autopairs
   use {
     'windwp/nvim-autopairs',

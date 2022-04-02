@@ -79,6 +79,11 @@ packer.startup(function(use)
     },
     config = function()
       local lsp_install = require("nvim-lsp-installer")
+      
+      lsp_install.settings({
+        install_root_dir = vim.fn.stdpath('config').."/lsp_servers"
+      })
+
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
       lsp_install.on_server_ready(function(server)

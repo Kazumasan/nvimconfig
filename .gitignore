@@ -2,3 +2,4 @@ packer/
 pack/
 snapshots/
 plugin
+lsp_servers

@@ -1,25 +1,25 @@
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  -- colorschemes
-  use {
-    'marko-cerovac/material.nvim',
-    config = require("material").setup{
-        lualine_style = "stealth",
-      }
-  }
+local packer = require('packer')
+local util = require("packer.util")
+local join_paths = util.join_paths
+local stdpath = vim.fn.stdpath
+packer.init({
+	package_root = join_paths(stdpath('config'), "pack"),
+        snapshot_path = join_paths(stdpath('config'), "snapshots"),
+})
+packer.startup(function(use)
+  use {"wbthomason/packer.nvim"}
+
   use {
     "EdenEast/nightfox.nvim",
-    config = require("nightfox").setup{
-      pallets = {
-        nightfox = {
-          -- yellow = { base="#36BFA1", dim="#288F79", bright="#60D2B9"},
-        },
-      }
-    }
-  }
-  use {
-    "sainnhe/sonokai"
+    config = function()
+      require("nightfox").setup{
+            palettes = {
+              nightfox = {
+                yellow = { base="#36BFA1", dim="#288F79", bright="#60D2B9"},
+              },
+            },
+          }
+    end
   }
   -- status line
   use { 'nvim-lualine/lualine.nvim',
@@ -32,14 +32,6 @@ return require('packer').startup(function(use)
       })
     end
   }
-  --tabbar
-  -- use {
-  --   'romgrk/barbar.nvim',
-  --   requires = {'kyazdani42/nvim-web-devicons'},
-  --   config = function ()
-  --     require("barbarconf")
-  --   end
-  -- }
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
@@ -60,25 +52,43 @@ return require('packer').startup(function(use)
      }
     end
   }
-  -- Use dependency and run lua function after load
   use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
+    'lewis6991/gitsigns.nvim', 
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function() 
+      require('gitsigns').setup() 
+    end,
   }
-  -- tree-sitter
   use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       config = function ()
-        require("treesitterconf")
+        return require("nvim-treesitter.configs").setup({
+          ensure_installed = "maintained",
+          highlight = {
+            enable = true
+          }
+        })
       end
   }
-  -- lsp / lsp-installer
   use{
     'williamboman/nvim-lsp-installer',
-    'neovim/nvim-lspconfig',
+    requires = {
+      'neovim/nvim-lspconfig',
+      "hrsh7th/cmp-nvim-lsp"
+    },
+    config = function()
+      local lsp_install = require("nvim-lsp-installer")
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+      lsp_install.on_server_ready(function(server)
+        opts = {
+          capabilities = capabilities
+        }
+        server:setup(opts)
+      end)
+    end
   }
-  -- Install nvim-cmp, buffer, cmp-lsp and LuaSnip + cmp-luasnip source as  a dependency
   use {
     "hrsh7th/nvim-cmp",
     requires = {
@@ -90,7 +100,7 @@ return require('packer').startup(function(use)
         config= function ()
           require("luasnip/loaders/from_vscode").load{
             include = {"javascript", "go"},
-            path="~/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+            path="~/.config/nvim/pack/packer/start/friendly-snippets"
           }
         end
       },
@@ -100,10 +110,9 @@ return require('packer').startup(function(use)
       "hrsh7th/cmp-nvim-lsp"
     },
     config = function()
-      require("cmpconf")
+      require("completion_config")
     end
   }
-  -- vim-kommentary
   use{
     'b3nj5m1n/kommentary',
     config = function ()
@@ -116,8 +125,7 @@ return require('packer').startup(function(use)
         ignore_whitespace = true,
       })
     end
-  }
-  -- telescope
+  } 
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
@@ -129,11 +137,9 @@ return require('packer').startup(function(use)
       }
     end
   }
-  -- movement Plugins
   use {
     'ggandor/lightspeed.nvim'
   }
-  --nvim-tree
   use {
       'kyazdani42/nvim-tree.lua',
       requires = {
@@ -141,7 +147,6 @@ return require('packer').startup(function(use)
         opt = true,
       },
       config = function ()
-        --set close_on_open in init before this plugin is setup
         require("nvim-tree").setup({
           disable_netrw = true,
           auto_close = false,
@@ -154,8 +159,6 @@ return require('packer').startup(function(use)
         })
       end
   }
-
-  -- autopairs
   use {
     'windwp/nvim-autopairs',
     config = function ()
@@ -164,22 +167,12 @@ return require('packer').startup(function(use)
       })
     end,
   }
-  -- formatter
   use {
     'mhartington/formatter.nvim',
     config = function ()
-      require('pretty');
+      require('formatter_config');
     end,
   }
-  -- Tabout
-  -- use {
-  --   'abecodes/tabout.nvim',
-  --   config = function()
-  --     require("taboutconf")
-  --   end,
-  --   wants = {'nvim-treesitter'}, -- or require if not used so far
-  --   after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
-  -- }
   use {
     "luukvbaal/stabilize.nvim",
     config = function() require("stabilize").setup() end

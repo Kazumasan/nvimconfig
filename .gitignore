@@ -3,3 +3,5 @@ pack/
 snapshots/
 plugin
 lsp_servers
+test.*
+test.lua

@@ -15,7 +15,11 @@ packer.startup(function(use)
       require("nightfox").setup{
             palettes = {
               nightfox = {
-                yellow = { base="#36BFA1", dim="#288F79", bright="#60D2B9"},
+                yellow = { 
+                  base="#36BFA1",
+                  dim="#288F79",
+                  bright="#60D2B9"
+                },
               },
             },
           }
@@ -79,7 +83,6 @@ packer.startup(function(use)
     },
     config = function()
       local lsp_install = require("nvim-lsp-installer")
-      
       lsp_install.settings({
         install_root_dir = vim.fn.stdpath('config').."/lsp_servers"
       })
@@ -98,7 +101,7 @@ packer.startup(function(use)
     "hrsh7th/nvim-cmp",
     requires = {
       {
-        "L3MON4D3/LuaSnip",
+        "L3MON4D3/LuaSnip", -- setup keys correctly
         requires = {
           "rafamadriz/friendly-snippets"
         },
@@ -132,7 +135,21 @@ packer.startup(function(use)
     end
   } 
   use {
-    'nvim-telescope/telescope.nvim',
+    'windwp/nvim-autopairs',
+    config = function ()
+      require("nvim-autopairs").setup({
+        disable_filetype = {"TelescopePrompt"}
+      })
+    end,
+  }
+  use {
+    'mhartington/formatter.nvim',
+    config = function ()
+      require('formatter_config');
+    end,
+  }
+use {
+  'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
     config = function()
       require('telescope').setup{
@@ -143,7 +160,39 @@ packer.startup(function(use)
     end
   }
   use {
-    'ggandor/lightspeed.nvim'
+    "AckslD/nvim-neoclip.lua",
+      requires = {
+        {'nvim-telescope/telescope.nvim'},
+        {'tami5/sqlite.lua', module = 'sqlite'},
+      },
+      config = function()
+        require('neoclip').setup({
+          default_register = '+',
+          eneable_persistent_history = true,
+          db_path = vim.fn.stdpath("config").."/neoclip/yank.sqlite3",
+          keys = {
+            telescope = {
+              i = {
+                select = '<cr>',
+                paste = '<c-p>',
+                paste_behind = '<c-k>',
+                replay = '<c-q>',  -- replay a macro
+                delete = '<c-d>',  -- delete an entry
+                custom = {},
+              },
+              n = {
+                select = '<cr>',
+                paste = 'p',
+                paste_behind = 'P',
+                replay = 'q',
+                delete = 'd',
+                custom = {},
+              },
+            }
+          },
+        })
+        require("telescope").load_extension("neoclip")
+      end,
   }
   use {
       'kyazdani42/nvim-tree.lua',
@@ -164,22 +213,34 @@ packer.startup(function(use)
         })
       end
   }
-  use {
-    'windwp/nvim-autopairs',
-    config = function ()
-      require("nvim-autopairs").setup({
-        disable_filetype = {"TelescopePrompt"}
+  use{
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("toggleterm").setup({
+        size = function (term)
+          if term.direction == "horizontal" then
+            return 15
+          elseif term.direction == "vertical" then
+              return 20
+          end
+        end,
+        open_mapping = [[<C-O>]],
+        hide_numbers = true,
+        shade_factor = 2,
+        start_in_insert = true,
+        insert_mapping = false,
+        terminal_mapping = true,
+        persistent_size = true,
+        direction = "horizontal",
+        close_on_exit = false,
       })
-    end,
-  }
-  use {
-    'mhartington/formatter.nvim',
-    config = function ()
-      require('formatter_config');
-    end,
+    end
   }
   use {
     "luukvbaal/stabilize.nvim",
     config = function() require("stabilize").setup() end
+  }
+  use {
+    'ggandor/lightspeed.nvim'
   }
 end)

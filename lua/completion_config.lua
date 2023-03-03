@@ -7,13 +7,16 @@ cmp.setup({
     end
   },
   sources = {
+    {name = "nvim_lsp"},
     {
       name = "buffer",
       keyword_length = 5,
       max_item_count = 5,
     },
-    {name = "luasnip"},
-    {name = "nvim_lsp"},
+    {
+      name = "luasnip",
+      max_item_count = 5,
+    },
     {name = "path"}
   },
   preselect = cmp.PreselectMode.None,

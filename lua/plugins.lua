@@ -25,13 +25,14 @@ packer.startup(function(use)
           }
     end
   }
+  use {'folke/tokyonight.nvim'}
   -- status line
   use { 'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
     config = function()
       require("lualine").setup({
         options = {
-          theme = "nightfox"
+          theme = "tokyonight"
         }
       })
     end
@@ -40,35 +41,40 @@ packer.startup(function(use)
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config=function ()
-     require("bufferline").setup{
-      mode= buffers,
-      close_command = "bdelete!",
-      indicator_line = "|",
-      modified_icon = "●",
-      offsets = {filetype = "NvimTree", text = "File Explorer" },
-      show_buffer_icons = true,
-      show_close_icon = false,
-      show_buffer_close_icons = false,
-      show_tab_indicator = true,
-      seperator_style = "thin",
-      always_show_buffer_line = true,
-      sort_by = "relative_directory"
-     }
+      require("bufferline").setup{
+        options = {
+          mode= buffers,
+          close_command = "bdelete!",
+          indicator_line = "|",
+          modified_icon = "●",
+          offsets = {filetype = "NvimTree", text = "File Explorer" },
+          show_buffer_icons = true,
+          show_close_icon = false,
+          show_buffer_close_icons = false,
+          show_tab_indicator = true,
+          seperator_style = "thin",
+          always_show_buffer_line = true,
+          sort_by = "relative_directory"
+        }
+      }
     end
   }
+  -- use {
+  --   'nanozuki/tabby.nvim',
+  --   config = function() return require("tabby_config") end
+  -- }
   use {
     'lewis6991/gitsigns.nvim', 
     requires = { 'nvim-lua/plenary.nvim' },
     config = function() 
       require('gitsigns').setup() 
-    end,
+    end
   }
   use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       config = function ()
         return require("nvim-treesitter.configs").setup({
-          ensure_installed = "maintained",
           highlight = {
             enable = true
           }
@@ -88,7 +94,7 @@ packer.startup(function(use)
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
       lsp_install.on_server_ready(function(server)
         opts = {
           capabilities = capabilities
@@ -203,7 +209,7 @@ use {
       config = function ()
         require("nvim-tree").setup({
           disable_netrw = true,
-          auto_close = false,
+          -- auto_close = false,
           open_on_tab = true,
           actions = {
             open_file = {

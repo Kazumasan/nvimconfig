@@ -22,7 +22,7 @@ vim.g.termguicolor = true
 
 -- virtual_text
 vim.diagnostic.config({
-  virtual_text = false
+  virtual_text = true
 })
 
 -- Show line diagnostics automatically in hover window

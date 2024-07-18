@@ -35,6 +35,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-path",
+      {"saadparwaiz1/cmp_luasnip"},
     },
     config = function()
       local cmp = require('cmp') 
@@ -49,11 +50,12 @@ return {
           completion = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-k>'] = cmp.mapping.scroll_docs(4),
+          ['<C-j>'] = cmp.mapping.select_next_item(),
+          ['<C-k>'] = cmp.mapping.select_prev_item(),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+
+
 
           ['<CR>'] = cmp.mapping(function(fallback)
             local luasnip = require("luasnip")
@@ -73,7 +75,9 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             local luasnip = require("luasnip")
             if cmp.visible() then
-              cmp.select_next_item()
+                cmp.confirm({
+                  select = true,
+                })
             elseif luasnip.locally_jumpable(1) then
               luasnip.jump(1)
             else
@@ -84,7 +88,10 @@ return {
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             local luasnip = require("luasnip")
             if cmp.visible() then
-              cmp.select_prev_item()
+              
+                cmp.confirm({
+                  select = true,
+                })
             elseif luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
             else
@@ -98,6 +105,7 @@ return {
           { name = 'luasnip' }, -- For luasnip users.
         }, {
           { name = 'buffer' },
+          { name = 'path' },
         })
       })
 
@@ -130,9 +138,12 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
-    -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp"
+    dependencies = {"rafamadriz/friendly-snippets"},
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_snipmate").lazy_load({paths = {"C:/Users/bastian/AppData/Local/nvim/snippets/"}})
+    end
   }
 }
